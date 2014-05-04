@@ -1,11 +1,11 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
-    apt (2.3.8)
+    apt (2.3.10)
     aws (2.2.0)
     bluepill (2.3.1)
       rsyslog (>= 0.0.0)
-    build-essential (2.0.0)
+    build-essential (2.0.2)
     chef_handler (1.1.6)
     database (2.1.8)
       aws (>= 0.0.0)
@@ -36,15 +36,10 @@ SITE
     ohai (1.1.12)
     openssl (1.1.0)
     postfix (3.1.8)
-    postgresql (3.3.4)
-      apt (>= 0.0.0)
+    postgresql (3.4.0)
+      apt (>= 1.9.0)
       build-essential (>= 0.0.0)
       openssl (>= 0.0.0)
-    rbenv (1.7.1)
-      apt (>= 0.0.0)
-      build-essential (>= 0.0.0)
-      git (>= 0.0.0)
-      ohai (>= 1.1)
     rsyslog (1.12.2)
     ruby_build (0.8.0)
     runit (1.5.10)
@@ -58,6 +53,17 @@ SITE
     yum (3.2.0)
     yum-epel (0.3.6)
       yum (~> 3.0)
+
+GIT
+  remote: https://github.com/RiotGames/rbenv-cookbook.git
+  ref: master
+  sha: 5ad5b5bec6002f7178060972bbc75f302fc37f57
+  specs:
+    rbenv (1.7.1)
+      apt (>= 0.0.0)
+      build-essential (>= 0.0.0)
+      git (>= 0.0.0)
+      ohai (>= 1.1)
 
 PATH
   remote: vendor/cookbooks/packages
@@ -80,14 +86,14 @@ PATH
     ssh_deploy_keys (0.1.0)
 
 DEPENDENCIES
-  apt (= 2.3.8)
+  apt (= 2.3.10)
   mysql (= 5.2.4)
   nginx (= 2.6.2)
   packages (>= 0)
   postfix (= 3.1.8)
-  postgresql (= 3.3.4)
+  postgresql (= 3.4.0)
   rails (>= 0)
-  rbenv (= 1.7.1)
+  rbenv (>= 0)
   ruby_build (= 0.8.0)
   ssh_deploy_keys (>= 0)
   sudo (= 2.5.2)

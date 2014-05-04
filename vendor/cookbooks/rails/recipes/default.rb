@@ -17,6 +17,8 @@
 # limitations under the License.
 #
 
+package 'patchutils'
+
 include_recipe "sudo"
 include_recipe "nginx"
 include_recipe "bluepill"
@@ -76,7 +78,15 @@ if node[:active_applications]
     app_env = app_info['app_env'] || {}
     app_env['RAILS_ENV'] = rails_env
 
-    rbenv_ruby app_info['ruby_version']
+    unless app_info['ruby_version'] == "2.1.1"
+      rbenv_ruby app_info['ruby_version']
+    else
+      rbenv_ruby app_info['ruby_version'] do
+        patch "https://bugs.ruby-lang.org/projects/ruby-trunk/repository/revisions/45225/diff?format=diff"
+      end
+    end  
+    
+    
 
     rbenv_gem "bundler" do
       ruby_version app_info['ruby_version']

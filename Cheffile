@@ -1,13 +1,14 @@
 site "http://community.opscode.com/api/v1"
 
 # Community cookbooks
-cookbook "apt", "2.3.8"
+cookbook "apt", "2.3.10"
 cookbook "mysql", "5.2.4"
-cookbook "postgresql", "3.3.4"
+cookbook "postgresql", "3.4.0"
 cookbook "nginx", "2.6.2"
 cookbook "postfix", "3.1.8"
 cookbook "sudo", "2.5.2"
-cookbook "rbenv", "1.7.1"
+#cookbook "rbenv", "1.7.1"
+cookbook "rbenv",  :git => "https://github.com/RiotGames/rbenv-cookbook.git", :ref => "master"
 cookbook "ruby_build", "0.8.0"
 
 # Our own cookbooks from vendor/
