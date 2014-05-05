@@ -76,6 +76,7 @@ if node[:active_applications]
       rbenv_ruby app_info['ruby_version']
     else
       rbenv_ruby app_info['ruby_version'] do
+        global true
         patch "https://bugs.ruby-lang.org/projects/ruby-trunk/repository/revisions/45225/diff?format=diff"
       end
     end  
